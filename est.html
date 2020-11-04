@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            function update(){
+              pa=document.getElementById("in").value;
+              http=new XMLHttpRequest();
+              http.open("GET","https://reqres.in/api/users/1");
+              http.send();
+              http.onreadystatechange = function(){
+                   if(this.readystate == 4 && this.status == 200){
+                      up=JSON.parse(this.responseText);
+                     Document.getElementById("output").innerHTML=up.data.first_name;
+                   }
+              }
+              }
+          </script>
+        <p id="output">Default Text</p>
+<input id="in">
+<button onclick="update()">Submit</button>
+    </body>
+</html>
